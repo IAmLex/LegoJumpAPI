@@ -1,0 +1,32 @@
+[
+    {
+       "type": 2,
+       "xCoord": 12,
+       "yCoord": 7
+    },
+    {
+       "type": 2,
+       "xCoord": 9,
+       "yCoord": 6
+    },
+    {
+       "type": 3,
+       "xCoord": 6,
+       "yCoord": 6
+    },
+    {
+       "type": 1,
+       "xCoord": 15,
+       "yCoord": 0
+    },
+    {
+       "type": 0,
+       "xCoord": 0,
+       "yCoord": 8
+    },
+    {
+       "type": 4,
+       "xCoord": 1,
+       "yCoord": 4
+    }
+]
