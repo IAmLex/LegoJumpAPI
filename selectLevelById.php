@@ -1,5 +1,5 @@
 <?php
-include 'initMysql.php';
+include_once 'initMysql.php';
 
 $levelId = $_GET['id']; 
 

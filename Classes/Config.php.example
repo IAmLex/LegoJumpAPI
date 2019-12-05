@@ -1,0 +1,7 @@
+<?php 
+    class Config {
+        const DATABASE_HOST     = "localhost";
+        const DATABASE_NAME     = "legojumpapi";
+        const DATABASE_USERNAME = "root";
+        const DATABASE_PASSWORD = "";
+    }

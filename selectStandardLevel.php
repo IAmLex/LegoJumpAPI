@@ -1,5 +1,5 @@
 <?php
-include 'initMysql.php';
+include_once 'initMysql.php';
 
 $sql = "SELECT * FROM level WHERE standard = 'Y' ORDER BY name";
 

@@ -1,41 +1,26 @@
 <?php
-    include 'initMysql.php';
+    // Save the given JSON on the server and save path to database
 
-    $space = "&#32;";
+    // POST /saveMap.php
+    // data: mapData : string (JSON)
+    
+    include_once 'Classes/InitPDO.php';
+    include_once 'Classes/LevelsController.php';
+    include_once 'Classes/Utilities.php';
 
-    // Get the next available ID
-    $sql = "SELECT id FROM level ORDER BY id DESC LIMIT 1";         //Select latest ID
-    $result = $mysqli->query($sql) or die($mysqli->error);          //Execute query
-    $row = $result->fetch_assoc();                                  //Go through results // Save result to $row
-    $nextId = $row['id'] + 1;                                       //Latest ID + 1
+    $jsonData = json_decode($_POST['mapData']);
+    $levelName = $jsonData->levelName;
+    
+    $formattedLevelName = str_replace(" ", "&#32;", $levelName); 
+    $filepath = "levels/{$formattedLevelName}.json";
 
-    $targetDir = "levels/";                                         //Name of the folder1
-    $filename = str_replace(" ", $space, $_GET['levelName'];
-    // $filename = "Level_".$nextId;                                   //Name of the file
-    $content = ['Name' => 'First level'];                           //The content for the file
-    $ext = "json";                                                  //The file extension
-    $filepath = $targetDir.$filename.".".$ext;                      //The full path
+    Utilities::SaveFile($filepath, json_encode($jsonData));
 
-    // Check if the same file already exists
-    if (file_exists($filepath)) {
-        
+    $levelsController = new LevelsController();
+    $result = $levelsController->StoreLevel($filepath, $levelName);
 
-        $fp = fopen($filepath, 'w');
-        fwrite($fp, json_encode($content));
-        fclose($fp);
-
-        
-
-        echo "Succesfully saved the map!";
-
-
-
+    if ($result) {
+        echo "succes";
     } else {
-
-        $fp = fopen($filepath, 'w');
-        fwrite($fp, json_encode($content));
-        fclose($fp);
-
-        echo "You've, succesfully overwritten your file!";
-        
+        echo "failure";
     }
