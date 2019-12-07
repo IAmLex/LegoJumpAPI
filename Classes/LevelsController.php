@@ -9,9 +9,17 @@
             $this->database = $pdo->getDatabase();
         }
 
+        public function GetLevelByID($levelID) {
+            // TODO: Error handling.
+            $stmt = $this->database->prepare("SELECT * FROM levels WHERE ID = :ID");
+            $stmt->execute([':ID' => $levelID]);
+
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        }
+
         public function GetLevelByName($levelName) {
             // TODO: Error handling.
-            $stmt = $this->database->prepare("SELECT * FROM levels WHERE level_name = ':level_name'");
+            $stmt = $this->database->prepare("SELECT * FROM levels WHERE level_name = :level_name");
             $stmt->execute([':level_name' => $levelName]);
 
             return $stmt->fetch(PDO::FETCH_ASSOC);

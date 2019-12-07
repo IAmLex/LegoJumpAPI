@@ -1,14 +1,14 @@
 <?php
     // Save the given JSON on the server and save path to database
 
-    // POST /saveMap.php
-    // data: mapData : string (JSON)
+    // POST /saveLevel.php
+    // data: levelData : string (JSON)
     
     include_once 'Classes/InitPDO.php';
     include_once 'Classes/LevelsController.php';
     include_once 'Classes/Utilities.php';
 
-    $jsonData = json_decode($_POST['mapData']);
+    $jsonData = json_decode($_POST['levelData']);
     $levelName = $jsonData->levelName;
     
     $formattedLevelName = str_replace(" ", "&#32;", $levelName); 

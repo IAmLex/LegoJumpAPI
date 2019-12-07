@@ -4,4 +4,5 @@
         const DATABASE_NAME     = "legojumpapi";
         const DATABASE_USERNAME = "root";
         const DATABASE_PASSWORD = "";
+        const ROOT              = "C:\\xampp\\htdocs\\LegoJumpAPI\\";
     }

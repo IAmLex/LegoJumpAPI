@@ -3,11 +3,11 @@
     include_once 'Classes/LevelsController.php';
     include_once 'Classes/Utilities.php';
 
-    $levelID = $_POST['levelID'];
+    $levelName = $_POST['levelName'];
 
-    // Select the level by ID
+    // Select the level by name
     $levelsController = new LevelsController();
-    $level = $levelsController->GetLeveLByID($levelID);
+    $level = $levelsController->GetLevelByName($levelName);
 
     // Error handling
     if (!$level) {
@@ -16,4 +16,6 @@
     }
 
     // Retrieve the json and echo the file
-    echo Utilities::ReadFile($level['filepath']);
+    $filepath = $level['filepath'];
+
+    echo Utilities::ReadFile($filepath);
