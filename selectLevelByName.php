@@ -3,6 +3,9 @@
     include_once 'Classes/LevelsController.php';
     include_once 'Classes/Utilities.php';
 
+    // POST /selectLevelByName.php
+    // data: levelName : string
+
     $levelName = $_POST['levelName'];
 
     // Select the level by name

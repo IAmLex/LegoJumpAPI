@@ -3,6 +3,9 @@
     include_once 'Classes/LevelsController.php';
     include_once 'Classes/Utilities.php';
 
+    // POST /selectLevelById.php
+    // data: levelID : int
+
     $levelID = $_POST['levelID'];
 
     // Select the level by ID
